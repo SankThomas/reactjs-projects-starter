@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #090f1a;
+  color: #263963;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #444f65;
+}
+
+.container {
+  background-color: #111827;
+  color: #fff;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 1rem;
+}
+
+.container .password {
+  background-color: #1d2436;
+  color: #76829b;
+  font-weight: 600;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .password p {
+  font-size: 1.1rem;
+}
+
+.container .password button {
+  background-color: #394355;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.35rem;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.container .password button:hover {
+  background-color: #444f65;
+}
+
+.container form {
+  margin-top: 2rem;
+}
+
+.container form article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.container form article label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.container form article input {
+  font-size: 1.25rem;
+}
+
+.container form article input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.container form .submit {
+  background-color: #1d2436;
+  color: #6d7483;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.container form .submit:hover {
+  background-color: #444f65;
+  color: #fff;
+}
