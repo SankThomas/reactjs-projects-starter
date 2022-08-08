@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Overpass", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #323534;
+  color: #38e2ad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 1.5rem;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.container {
+  background-color: #252626;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container:hover {
+  opacity: 0.75;
+}
+
+button {
+  display: block;
+  background-color: #38e2ad;
+  color: #252626;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  margin: 2rem auto 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+
+button.close {
+  display: inline;
+  font-size: 0.7rem;
+  background-color: transparent;
+  border-radius: none;
+  padding: 0;
+  margin: 0;
+}
+
+.share {
+  background-color: #38e2ad;
+  color: #252626;
+  padding: 1rem 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+a {
+  color: #252626;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.share ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.share ul li {
+  margin-right: 1rem;
+}
