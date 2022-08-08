@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #3b3a3b;
+  padding: 1.5rem;
+  background-color: #fbfafb;
+}
+
+.resume {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+.name {
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+
+.job-title {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-top: 0.5rem;
+}
+
+.resume-body {
+  margin-top: 3rem;
+  background-color: #111827;
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.resume-body h2,
+.resume-body h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.resume-body p {
+  color: hsla(0, 0%, 100%, 0.8);
+  margin-top: 0.3rem;
+  line-height: 1.8;
+}
+
+.resume-body div:not(:first-child) {
+  margin-top: 2rem;
+}
