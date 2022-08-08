@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: #182135;
+  padding: 1.5rem;
+  max-width: 1580px;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  color: #333333;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0 4rem;
+}
+
+.books article {
+  transition: 0.3s;
+}
+
+.books article:hover {
+  transform: scale(1.02);
+}
+
+a {
+  background-color: #182135;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.6rem 2rem 0.7rem;
+  border: none;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+a:hover {
+  background-color: #101624;
+}
+
+@media (min-width: 768px) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .books {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .books {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
