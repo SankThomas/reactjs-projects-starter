@@ -2,9 +2,10 @@
 
 1. HTML
 2. CSS
-3. JavaScript - link to JS refresher on MDN
+3. JavaScript - [link to JS refresher on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Overview)
 4. Npm
 5. Git - preferrable for making git commits
+6. GitHub Account - to commit / download source code.
 
 ## What you need on your machine
 
