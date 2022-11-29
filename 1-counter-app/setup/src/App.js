@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+export default function App() {
+  const [number, setNumber] = useState(0);
+
+  const increment = () => setNumber(number + 1);
+
+  const decrement = () => setNumber(number - 1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <article>
+        <ul>
+          <li>
+            <button onClick={increment}>+1</button>
+          </li>
+          <li>{number}</li>
+          <li>
+            <button onClick={decrement}>-1</button>
+          </li>
+        </ul>
+      </article>
     </div>
   );
 }
 
-export default App;
+/* 
+1. Stateless component - class / function
+2. Stateful component - class / function
+*/
