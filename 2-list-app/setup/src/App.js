@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const data = [
+  {
+    id: 1,
+    name: "Thomas Sankara",
+    title: "Front-end web developer",
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    title: "Front-end web developer",
+  },
+  {
+    id: 3,
+    name: "John Doe",
+    title: "Front-end web developer",
+  },
+  {
+    id: 4,
+    name: "Batman",
+    title: "Front-end web developer",
+  },
+];
+
+export default function App() {
+  const [people, setPeople] = useState(data);
+
+  // Fragment
+
+  const handleDelete = (id) => {
+    setPeople(people.filter((person) => person.id !== id));
+  };
+
+  const handleRefresh = () => {
+    setPeople(data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <section className="showcase">
+        <div className="overlay">
+          <h1>{people.length} people</h1>
+
+          <div>
+            <ul>
+              {people.map((person) => (
+                <React.Fragment key={person.id}>
+                  <li className="name">{person.name}</li>
+                  <li className="title">{person.title}</li>
+                  <button onClick={() => handleDelete(person.id)}>
+                    Delete
+                  </button>
+                </React.Fragment>
+              ))}
+            </ul>
+
+            <button onClick={handleRefresh}>Refresh</button>
+          </div>
+        </div>
+      </section>
+    </React.Fragment>
   );
 }
-
-export default App;
