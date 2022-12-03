@@ -1,13 +1,118 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section {
+  padding: 0 1.5rem;
+  min-width: 375px;
+}
+
+.container {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+}
+
+.container .item-number {
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.container form {
+  margin-top: 2rem;
+}
+
+.container input {
+  padding: 0.5rem 2rem;
+  border: none;
+  border-bottom: 2px solid #999;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  outline: none;
+}
+
+.container input:focus {
+  border-bottom-color: #10b581;
+}
+
+.container button {
+  background-color: #10b581;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.625rem;
+  border: none;
+  outline: none;
+  letter-spacing: 0.1rem;
+}
+
+.list-items {
+  margin-top: 2rem;
+  padding: 0 0 0 1.5rem;
+}
+
+.list-items ol li {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-items ol li:nth-child(even) {
+  background-color: white;
+}
+
+.edit-button {
+  background-color: transparent;
+  color: #10b581;
+  font-size: 1.25rem;
+  padding: 0.3rem;
+  margin-right: 0.2rem;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #10b58135;
+}
+
+.delete-button {
+  background-color: transparent;
+  color: #f74646;
+  font-size: 1.25rem;
+  padding: 0.3rem;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #f7464635;
 }
