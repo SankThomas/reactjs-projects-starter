@@ -18,7 +18,7 @@
 
 4. A GitHub account to access and download source code files.
 
-## Project Outlines
+## Projects Outline and Objectives
 
 By the end of each of the projects you should be able to do each of the items listed below.
 
