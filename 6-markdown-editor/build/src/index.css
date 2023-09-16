@@ -79,7 +79,8 @@ code {
 .preview ol,
 .preview ul,
 .preview li,
-.preview a {
+.preview a,
+.preview code {
   color: hsla(0, 0%, 100%, 0.75);
 }
 
@@ -87,12 +88,31 @@ code {
 .preview ol:hover,
 .preview ul:hover,
 .preview li:hover,
-.preview a:hover {
+.preview a:hover,
+.preview code:hover {
   color: #fff;
 }
 
 .preview a {
   text-decoration: underline;
+}
+
+.preview blockquote {
+  background-color: #111111;
+  font-style: italic;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.preview th,
+.preview td {
+  border: 1px solid #111111;
+  padding: 8px;
+}
+
+.preview tr:nth-child(even) {
+  background-color: #111111;
 }
 
 .actual-markdown {
