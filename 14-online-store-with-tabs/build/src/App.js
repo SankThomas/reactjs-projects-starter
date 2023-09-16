@@ -1,10 +1,10 @@
-import { useState } from "react"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import { items } from "./data"
-import SingleProduct from "./SingleProduct"
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { items } from "./data";
+import SingleProduct from "./SingleProduct";
 
 function App() {
-  const [cards] = useState(items)
+  const [cards] = useState(items);
 
   return (
     <BrowserRouter>
@@ -20,7 +20,11 @@ function App() {
                 {cards.map((card) => (
                   <Link key={card.id} to={`/${card.id}`}>
                     <article>
-                      <img src={card.images[0]} alt={card.title} />
+                      <img
+                        src={card.images[0]}
+                        alt={card.title}
+                        style={{ objectFit: "contain" }}
+                      />
                       <h2>{card.title}</h2>
                       <p>{card.description}</p>
                     </article>
@@ -33,7 +37,7 @@ function App() {
         <Route path="/:id" element={<SingleProduct></SingleProduct>}></Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

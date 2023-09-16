@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
-import { items } from "./data"
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { items } from "./data";
 
 export default function SingleProduct() {
-  const [singleItem, setSingleItem] = useState(items)
-  const [value, setValue] = useState(0)
-  const { id } = useParams()
+  const [singleItem, setSingleItem] = useState(items);
+  const [value, setValue] = useState(0);
+  const { id } = useParams();
 
   useEffect(() => {
     const findProduct = () => {
-      const newProduct = items.find((product) => product.id === id)
-      setSingleItem(newProduct)
-    }
+      const newProduct = items.find((product) => product.id === id);
+      setSingleItem(newProduct);
+    };
 
-    findProduct()
-  }, [id])
+    findProduct();
+  }, [id]);
 
   return (
     <section className="single-product">
@@ -32,7 +32,7 @@ export default function SingleProduct() {
               style={{
                 height: 400,
                 width: "100%",
-                objectFit: "cover",
+                objectFit: "contain",
               }}
             />
 
@@ -43,7 +43,13 @@ export default function SingleProduct() {
                     onClick={() => setValue(index)}
                     className={`${index === value && "active"}`}
                   >
-                    <img src={image} alt={singleItem.title} />
+                    <img
+                      src={image}
+                      alt={singleItem.title}
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
                   </button>
                 </li>
               ))}
@@ -59,5 +65,5 @@ export default function SingleProduct() {
         <button>Add to cart</button>
       </article>
     </section>
-  )
+  );
 }
