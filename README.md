@@ -5,7 +5,6 @@
 3. JavaScript - [link to JS refresher on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Overview)
 4. Npm
 5. Git - preferrable for making git commits
-6. GitHub Account - to commit / download source code.
 
 ## What you need on your machine
 
@@ -19,7 +18,7 @@
 
 4. A GitHub account to access and download source code files.
 
-## Project Outlines
+## Projects Outline and Objectives
 
 By the end of each of the projects you should be able to do each of the items listed below.
 
