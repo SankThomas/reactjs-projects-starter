@@ -17,7 +17,7 @@ export default function Issues() {
                 <small
                   key={index}
                   style={{
-                    backgroundColor: `#${label.color}`,
+                    backgroundColor: `#${label.color}50`,
                   }}
                 >
                   <a href={label.url}>{label.name}</a>
