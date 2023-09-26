@@ -1,36 +1,35 @@
-import { useState } from "react"
-import { Image } from "cloudinary-react"
-import axios from "axios"
+import { useState } from "react";
+import { Image } from "cloudinary-react";
+import axios from "axios";
 
 function App() {
-  const [images, setImages] = useState([])
-  const [imageData, setImageData] = useState(null)
+  const [images, setImages] = useState([]);
+  const [imageData, setImageData] = useState(null);
 
   const uploadImage = () => {
-    const formData = new FormData()
-    formData.append("file", images)
-    formData.append("upload_preset", "pgy3kion")
+    const formData = new FormData();
+    formData.append("file", images);
+    formData.append("upload_preset", "pgy3kion");
 
     const postImage = async () => {
       try {
         const response = await axios.post(
           "https://api.cloudinary.com/v1_1/sankara/image/upload",
-          formData
-        )
-        setImageData(response.data)
+          formData,
+        );
+        setImageData(response.data);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    }
+    };
 
-    postImage()
-  }
+    postImage();
+  };
 
   return (
     <>
-      <h1>Image Upload Application</h1>
-
-      <section>
+      <section className="container">
+        <h1>Image Upload Application</h1>
         <article>
           <input
             type="file"
@@ -52,7 +51,7 @@ function App() {
         </article>
       </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
