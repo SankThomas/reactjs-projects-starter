@@ -4,13 +4,13 @@ import { products } from "./data";
 export default function App() {
   const [items, setItems] = useState(products);
 
-  function handleDelete(id) {
+  const handleDelete = (id) => {
     setItems(items.filter((item) => item.id !== id));
-  }
+  };
 
-  function handleRefresh() {
+  const handleRefresh = () => {
     setItems(products);
-  }
+  };
 
   return (
     <>
@@ -29,15 +29,18 @@ export default function App() {
       })} */}
 
         {/* {items.map((item, index) => (
-        <article key={index}>
-          <img src={item.thumbnail} alt={item.title} />
-          <h2>{item.title}</h2>
-          <p>{item.description}</p>
-          <button className="delete-btn" onClick={() => handleDelete(item.id)}>
-            Delete item
-          </button>
-        </article>
-      ))} */}
+          <article key={index}>
+            <img src={item.thumbnail} alt={item.title} />
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+            <button
+              className="delete-btn"
+              onClick={() => handleDelete(item.id)}
+            >
+              Delete item
+            </button>
+          </article>
+        ))} */}
 
         {items.map(({ id, title, description, thumbnail }) => (
           <article key={id}>
@@ -50,7 +53,12 @@ export default function App() {
           </article>
         ))}
       </section>
-      <button className="delete-btn" onClick={handleRefresh}>
+
+      <button
+        style={{ display: "block", marginInline: "auto" }}
+        className="delete-btn"
+        onClick={handleRefresh}
+      >
         Refresh
       </button>
     </>
