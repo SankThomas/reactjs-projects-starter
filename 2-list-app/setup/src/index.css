@@ -1,52 +1,72 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #f1f1f1;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
-.showcase {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  /* text-align: center; */
+img {
+  max-width: 100%;
 }
 
-.overlay {
-  background-color: #fff;
-  padding: 1rem;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
-  width: 90%;
-  max-width: 800px;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-ul {
-  list-style-type: none;
-  margin-top: 1rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  padding: 32px;
+  max-width: 1400px;
+  margin-inline: auto;
 }
 
-ul > li.name {
+.grid article img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.grid article h2 {
+  margin-bottom: 1rem;
+}
+
+.grid article p {
+  color: #444;
+}
+
+.delete-btn {
+  display: inline-block;
+  background-color: #f87171;
+  color: #fff;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
 }
 
-ul > button {
-  margin-bottom: 2rem;
-  background-color: red;
-  color: white;
-  padding: 0.5rem 2rem;
-  border-radius: 0.2rem;
-  border: none;
-  cursor: pointer;
+.delete-btn:hover {
+  background-color: #ef4444;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
