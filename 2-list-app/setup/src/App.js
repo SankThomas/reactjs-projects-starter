@@ -1,64 +1,58 @@
 import React, { useState } from "react";
-
-const data = [
-  {
-    id: 1,
-    name: "Thomas Sankara",
-    title: "Front-end web developer",
-  },
-  {
-    id: 2,
-    name: "Jane Doe",
-    title: "Front-end web developer",
-  },
-  {
-    id: 3,
-    name: "John Doe",
-    title: "Front-end web developer",
-  },
-  {
-    id: 4,
-    name: "Batman",
-    title: "Front-end web developer",
-  },
-];
+import { products } from "./data";
 
 export default function App() {
-  const [people, setPeople] = useState(data);
+  const [items, setItems] = useState(products);
 
-  // Fragment
+  function handleDelete(id) {
+    setItems(items.filter((item) => item.id !== id));
+  }
 
-  const handleDelete = (id) => {
-    setPeople(people.filter((person) => person.id !== id));
-  };
-
-  const handleRefresh = () => {
-    setPeople(data);
-  };
+  function handleRefresh() {
+    setItems(products);
+  }
 
   return (
-    <React.Fragment>
-      <section className="showcase">
-        <div className="overlay">
-          <h1>{people.length} people</h1>
+    <>
+      <h1 style={{ marginTop: 32, textAlign: "center" }}>
+        Showing {items.length} items
+      </h1>
+      <section className="grid">
+        {/* {items.map((item) => {
+        return (
+          <article key={item.id}>
+            <img src={item.thumbnail} alt={item.title} />
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+          </article>
+        );
+      })} */}
 
-          <div>
-            <ul>
-              {people.map((person) => (
-                <React.Fragment key={person.id}>
-                  <li className="name">{person.name}</li>
-                  <li className="title">{person.title}</li>
-                  <button onClick={() => handleDelete(person.id)}>
-                    Delete
-                  </button>
-                </React.Fragment>
-              ))}
-            </ul>
+        {/* {items.map((item, index) => (
+        <article key={index}>
+          <img src={item.thumbnail} alt={item.title} />
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+          <button className="delete-btn" onClick={() => handleDelete(item.id)}>
+            Delete item
+          </button>
+        </article>
+      ))} */}
 
-            <button onClick={handleRefresh}>Refresh</button>
-          </div>
-        </div>
+        {items.map(({ id, title, description, thumbnail }) => (
+          <article key={id}>
+            <img src={thumbnail} alt={title} />
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <button className="delete-btn" onClick={() => handleDelete(id)}>
+              Delete item
+            </button>
+          </article>
+        ))}
       </section>
-    </React.Fragment>
+      <button className="delete-btn" onClick={handleRefresh}>
+        Refresh
+      </button>
+    </>
   );
 }
