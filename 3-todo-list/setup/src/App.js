@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./components/List";
 
-const fetchLocalStorage = () => {
+function getLocalStorage() {
   let items = localStorage.getItem("items");
 
   if (items) {
@@ -9,14 +9,14 @@ const fetchLocalStorage = () => {
   } else {
     return [];
   }
-};
+}
 
 export default function App() {
   const [text, setText] = useState("");
-  const [items, setItems] = useState(fetchLocalStorage());
+  const [items, setItems] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
     if (!text) {
@@ -28,19 +28,20 @@ export default function App() {
       };
       setItems([newItem, ...items]);
       setText("");
+      setIsEditing(false);
     }
-  };
+  }
 
-  const handleDelete = (id) => {
+  function handleDelete(id) {
     setItems(items.filter((item) => item.id !== id));
-  };
+  }
 
-  const handleEdit = (id) => {
+  function handleEdit(id) {
     const editingItem = items.find((item) => item.id === id);
     setItems(items.filter((item) => item.id !== id));
     setIsEditing(true);
     setText(editingItem.title);
-  };
+  }
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
@@ -52,7 +53,7 @@ export default function App() {
         <div className="container">
           <h2>Todo List</h2>
           <p className="item-number">
-            You have {items.length} items in your ToDo List
+            You have {items.length} items in your ToDo list.
           </p>
 
           <div>
@@ -61,22 +62,21 @@ export default function App() {
                 type="text"
                 name="todo-item"
                 id="todo-item"
-                placeholder="E.g. bread"
+                placeholder="E.g bread"
                 required
                 value={text}
-                onChange={(event) => setText(event.target.value)}
+                onChange={(e) => setText(e.target.value)}
               />
-              <button type="submit" onClick={handleSubmit}>
-                Add
+              <button onClick={handleSubmit} type="submit">
+                {isEditing ? "Editing Item" : "Add"}
               </button>
             </form>
           </div>
         </div>
 
-        {/* List items */}
-        <div className="list-items">
+        <div>
           <List
-            items={items}
+            listItems={items}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
           />
