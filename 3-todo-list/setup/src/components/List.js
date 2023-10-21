@@ -1,11 +1,11 @@
 import React from "react";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
-export default function List({ items, handleEdit, handleDelete }) {
+export default function List({ listItems, handleDelete, handleEdit }) {
   return (
-    <>
+    <div className="list-items">
       <ol>
-        {items.map((item) => (
+        {listItems.map((item) => (
           <li key={item.id}>
             {item.title}
             <div>
@@ -25,6 +25,6 @@ export default function List({ items, handleEdit, handleDelete }) {
           </li>
         ))}
       </ol>
-    </>
+    </div>
   );
 }
