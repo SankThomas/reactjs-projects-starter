@@ -1,68 +1,87 @@
-import React, { useState } from "react"
-import { FaEdit } from "react-icons/fa"
-import { AiFillDelete } from "react-icons/ai"
+import React, { useState, useEffect } from "react";
+import List from "./components/List";
 
-function App() {
-  const [text, setText] = useState("")
-  const [list, setList] = useState([])
+const fetchLocalStorage = () => {
+  let items = localStorage.getItem("items");
+
+  if (items) {
+    return JSON.parse(localStorage.getItem("items"));
+  } else {
+    return [];
+  }
+};
+
+export default function App() {
+  const [text, setText] = useState("");
+  const [items, setItems] = useState(fetchLocalStorage());
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!text) {
-      alert("Please type in something")
+      alert("Input is empty");
     } else {
       const newItem = {
-        id: new Date().getTime().toString(),
         title: text,
-      }
-      setList([newItem, ...list])
-      setText("")
+        id: new Date().getTime().toString(),
+      };
+      setItems([newItem, ...items]);
+      setText("");
     }
-  }
+  };
+
+  const handleDelete = (id) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
+  const handleEdit = (id) => {
+    const editingItem = items.find((item) => item.id === id);
+    setItems(items.filter((item) => item.id !== id));
+    setIsEditing(true);
+    setText(editingItem.title);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   return (
     <>
-      <div className="todo-container">
-        <h1>Todo Meter</h1>
+      <section>
+        <div className="container">
+          <h2>Todo List</h2>
+          <p className="item-number">
+            You have {items.length} items in your ToDo List
+          </p>
 
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="text">Add a todo item</label>
-          <input
-            type="text"
-            name="text"
-            id="text"
-            placeholder="Add a todo item"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+          <div>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="todo-item"
+                id="todo-item"
+                placeholder="E.g. bread"
+                required
+                value={text}
+                onChange={(event) => setText(event.target.value)}
+              />
+              <button type="submit" onClick={handleSubmit}>
+                Add
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* List items */}
+        <div className="list-items">
+          <List
+            items={items}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
           />
-          <button type="submit">+ Add item</button>
-        </form>
-      </div>
-
-      <ol className="list-container">
-        {list.map(({ id, title }) => (
-          <React.Fragment key={id}>
-            <div>
-              <li>{title}</li>
-
-              <article>
-                <button>
-                  <FaEdit />
-                </button>
-                <button>
-                  <AiFillDelete />
-                </button>
-              </article>
-            </div>
-          </React.Fragment>
-        ))}
-      </ol>
-
-      <br />
-      <small>You have {list.length} items in your todo list</small>
+        </div>
+      </section>
     </>
-  )
+  );
 }
-
-export default App
