@@ -1,10 +1,11 @@
-import { useState } from "react"
-import { jobs } from "../data"
-import RightSidebar from "./RightSidebar"
+import { useState } from "react";
+import { jobs } from "../data";
+import defaultImage from "../default.png";
+import RightSidebar from "./RightSidebar";
 
 export default function Jobs() {
-  const [items] = useState(jobs)
-  const [value, setValue] = useState(0)
+  const [items] = useState(jobs);
+  const [value, setValue] = useState(0);
 
   return (
     <>
@@ -20,7 +21,40 @@ export default function Jobs() {
               className={`${index === value && "active"}`}
             >
               <div>
-                <h2>{item.title}</h2>
+                <h2
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                  }}
+                >
+                  {item.image ? (
+                    <span>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        style={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </span>
+                  ) : (
+                    <span>
+                      <img
+                        src={defaultImage}
+                        alt={item.title}
+                        style={{
+                          width: 40,
+                          height: 40,
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </span>
+                  )}
+                  {item.title}
+                </h2>
                 <p>{item.salary}</p>
               </div>
               <div>
@@ -44,5 +78,5 @@ export default function Jobs() {
 
       <RightSidebar items={items} value={value} />
     </>
-  )
+  );
 }
