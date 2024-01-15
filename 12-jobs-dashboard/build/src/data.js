@@ -1,11 +1,10 @@
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 
 export const jobs = [
   {
     id: uuidv4(),
     title: "Baking Assistant",
     company: "Janeys Vegan Patisserie",
-    image: "./images/default.jpg",
     location: "Mlolongo, Kenya",
     type: "Full Time",
     applicants: "10",
@@ -185,7 +184,7 @@ export const jobs = [
     id: uuidv4(),
     title: "Senior Software and API Integration Engineer",
     company: "CyberBox",
-    image: "./images/cyberbox.jpeg",
+    image: "./images/cyberbox.jpg",
     location: "East Africa",
     type: "Full Time",
     applicants: "124",
@@ -359,4 +358,4 @@ export const jobs = [
     about:
       "Gebeya Inc. is a Pan-African online Freelance Talent Marketplace headquartered in Addis Ababa, Ethiopia. The company aims to become an active contributor to Africa’s digital transformation and build a booming Africa through leveraging continental and global job opportunities for African talent.",
   },
-]
+];
